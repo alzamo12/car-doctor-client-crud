@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { useLoaderData } from 'react-router';
 import { AuthContext } from '../../providers/AuthProvider';
 
@@ -6,6 +6,7 @@ const BookService = () => {
     const service = useLoaderData();
     const { title, _id, price, img } = service;
     const {user} = useContext(AuthContext);
+
 
     const handleBookService = event =>{
         event.preventDefault();
@@ -26,7 +27,7 @@ const BookService = () => {
 
         console.log(booking);
 
-        fetch('http://localhost:5000/bookings', {
+        fetch('https://car-doctor-server-of87t2ek0-al-zamis-projects.vercel.app/bookings', {
             method: 'POST', 
             headers: {
                 'content-type': 'application/json'
