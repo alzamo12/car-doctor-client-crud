@@ -2,6 +2,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/images/login/login.svg'
 import { useContext } from 'react';
 import { AuthContext } from '../../providers/AuthProvider';
+import axios from 'axios';
 
 const Login = () => {
 
@@ -16,11 +17,22 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(name, email, password)
+        // signin
         signIn(email, password)
             .then(result => {
-                const user = result.user;
-                console.log(user);
-               navigate(location?.state?.from)
+                const loggedInUser = result.user;
+                console.log(loggedInUser);
+                const user = {email};
+
+                axios.post('https://car-doctor-server-kbleeupdi-al-zamis-projects.vercel.app/jwt', user, {
+                    withCredentials: true
+                })
+                .then(res => {
+                    console.log(res.data)
+                    navigate(location?.state?.from)
+                })
+
+              
             })
             .catch(error => console.log(error));
     }

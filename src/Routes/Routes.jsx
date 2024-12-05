@@ -27,7 +27,10 @@ const router = createBrowserRouter([
         {
           path: 'book/:id', 
           element: <PrivateRoute><BookService></BookService></PrivateRoute>, 
-          loader: ({params}) => fetch(`https://car-doctor-server-of87t2ek0-al-zamis-projects.vercel.app/services/${params.id}`)
+          loader: ({params}) => fetch(`https://car-doctor-server-kbleeupdi-al-zamis-projects.vercel.app/services/${params.id}`, {
+            method: 'GET',
+            // credentials: true
+          })
         },
         {
           path: 'bookings', 

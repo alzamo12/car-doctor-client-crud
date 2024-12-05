@@ -27,12 +27,13 @@ const BookService = () => {
 
         console.log(booking);
 
-        fetch('https://car-doctor-server-of87t2ek0-al-zamis-projects.vercel.app/bookings', {
+        fetch('https://car-doctor-server-kbleeupdi-al-zamis-projects.vercel.app/bookings', {
             method: 'POST', 
             headers: {
                 'content-type': 'application/json'
             }, 
-            body: JSON.stringify(booking)
+            body: JSON.stringify(booking),
+            // credentials: true
         })
         .then(res => res.json())
         .then(data => {

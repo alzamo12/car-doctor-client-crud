@@ -5,18 +5,13 @@ const Services = () => {
     const [services, setServices] = useState([]);
 
     useEffect(() => {
-        fetch('https://car-doctor-server-of87t2ek0-al-zamis-projects.vercel.app/services'
-        //     , {
-        //     mode:'no-cors', 
-        //     headers: {
-        //         'content-type': 'application/json'
-        //     }
-        // }
-    )
+        fetch('https://car-doctor-server-kbleeupdi-al-zamis-projects.vercel.app/services')
             .then(res => res.json())
-            .then(data => 
-                setServices(data)           
-             )
+            .then(data => {
+                setServices(data)
+                console.log(data)
+            }
+            )
     }, [])
 
     console.log(services)

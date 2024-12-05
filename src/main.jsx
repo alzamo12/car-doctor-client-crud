@@ -7,8 +7,9 @@ import {
 } from "react-router-dom";
 import router from './Routes/Routes.jsx';
 import AuthProvider from './providers/AuthProvider';
+import axios from 'axios';
 
-
+axios.defaults.withCredentials = true
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <div className='max-w-7xl mx-auto'>
